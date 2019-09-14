@@ -1,33 +1,30 @@
-const mongoose = require("mongoose");
-mongoose.set('useFindAndModify', false);
-
-const product = mongoose.model("Product");
+const productService = require('../services/ProductService');
 
 module.exports = {
     async index(req, res) {
-        const prods = await product.find();
+        const prods = await productService.getAll();
         return res.json(prods);
     },
     async getPaginate(req, res) {
         //destructuring w/ default value
         const { page = 1} = req.query;
-        const prods = await product.paginate({}, {page, limit: 3}); //await product.paginate({}, { page, limit: 3});
+        const prods = await productService.getPaginated(page, 3);
         return res.json(prods);
     },
     async detail(req, res) {
-        const productDetail = await product.find({_id:req.params.id}); //mongoose.findById
+        const productDetail = await productService.getById(req.params.id);
         return res.json(productDetail);
     },
     async save(req, res) {
-        const newProduct = await product.create(req.body);
+        const newProduct = await productService.save(req.body);
         return res.json(newProduct);
     },
     async update(req, res) {
-        const updatedProduct = await product.findByIdAndUpdate(req.params.id, req.body, { new: true});
+        const updatedProduct = await productService.update(req.params.id, req.body);
         return res.json(updatedProduct);
     },
     async delete(req, res) {
-        await product.findByIdAndDelete(req.params.id);
+        await productService.delete(req.params.id);
         res.send();
     }
 }

@@ -8,6 +8,12 @@ module.exports = {
         const prods = await product.find();
         return res.json(prods);
     },
+    async getPaginate(req, res) {
+        //destructuring w/ default value
+        const { page = 1} = req.query;
+        const prods = await product.paginate({}, {page, limit: 3}); //await product.paginate({}, { page, limit: 3});
+        return res.json(prods);
+    },
     async detail(req, res) {
         const productDetail = await product.find({_id:req.params.id}); //mongoose.findById
         return res.json(productDetail);

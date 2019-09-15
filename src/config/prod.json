@@ -1,9 +1,0 @@
-{
-    "env": "prod",
-    "app": {
-        "port": ""
-    },
-    "db": {
-        "connectionString": "<connection-string>"
-    }
-}

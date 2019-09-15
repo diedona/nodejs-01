@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config(); //reads .env file
 
 const config = {
     app: {

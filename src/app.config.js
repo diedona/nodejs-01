@@ -1,4 +1,6 @@
-require('dotenv').config(); //reads .env file
+if(process.env.NODE_ENV !== 'production') {
+    require('dotenv').config(); //reads .env file
+}
 
 const config = {
     app: {

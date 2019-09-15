@@ -8,7 +8,6 @@ module.exports = () => {
     requireDir('./models');
 
     //inicia DB
-    const {host, port, name } = config.db;
-    mongoose.connect(`mongodb://${host}:${port}/${name}`, {useNewUrlParser: true, useUnifiedTopology: true});
+    mongoose.connect(config.db.connectionString, {useNewUrlParser: true, useUnifiedTopology: true});
 
 }

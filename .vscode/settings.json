@@ -1,0 +1,7 @@
+{
+    "appService.zipIgnorePattern": [
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/7846457b-4101-4623-8ce2-132a758e68e3/resourceGroups/nodejs-tests/providers/Microsoft.Web/sites/dona-nodejs",
+    "appService.deploySubpath": ""
+}

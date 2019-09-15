@@ -4,7 +4,7 @@ const convict = require('convict'); //multiple environment
 const config = convict({
     env: {
         doc: "The application environment.",
-        format: ["prd", "dev"],
+        format: ["prod", "dev"],
         default: "development",
         env: "NODE_ENV"
     },

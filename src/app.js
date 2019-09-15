@@ -9,6 +9,6 @@ app.use(express.json());
 app.use(cors());
 configureDb();
 app.use('/api', require('./app.routes'));
-app.listen(config.app.port);
+app.listen(process.env.PORT || config.app.port);
 
 module.exports = app;

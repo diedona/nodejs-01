@@ -1,11 +1,13 @@
+require('dotenv').config();
+
 const config = {
     app: {
-        port: 3001
+        port: process.env.APP_PORT
     },
     db: {
-        host: 'localhost',
-        port: 27017,
-        name: 'nodeapi'
+        host: process.env.DB_HOST,
+        port: process.env.DB_PORT,
+        name: process.env.DB_NAME
     }
 };
 

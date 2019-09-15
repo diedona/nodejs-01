@@ -1,11 +1,14 @@
 const mongoose = require("mongoose");
 const requireDir = require("require-dir");
-const app = require('./app');
+const config = require('./app.config');
 
 module.exports = () => {
 
     // inicia models
     requireDir('./models');
+
     //inicia DB
-    mongoose.connect('mongodb://localhost:27017/nodeapi', {useNewUrlParser: true, useUnifiedTopology: true});
+    const {host, port, name } = config.db;
+    mongoose.connect(`mongodb://${host}:${port}/${name}`, {useNewUrlParser: true, useUnifiedTopology: true});
+
 }

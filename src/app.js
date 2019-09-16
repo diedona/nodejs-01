@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const configureDb = require('./app.db');
 const config = require('./app.config');
-const errorHandlers = require('./app.error');
+const errorHandlers = require('./middleware/error');
 
 // inicia aplicação
 const app = express();

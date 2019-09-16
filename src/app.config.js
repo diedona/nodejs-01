@@ -8,7 +8,8 @@ const config = {
     },
     db: {
         connectionString: process.env.CONNECTION_STRING
-    }
+    },
+    privateKey: process.env.PRIVATE_KEY
 };
 
 
